@@ -36,5 +36,45 @@ for (let callBtn of callButtons) {
 
     balanceCoin = balanceCoin - 20;
     coinCountElements.innerText = balanceCoin;
+
+    historyContainer.innerHTML = "";
+
+    const data = {
+      name: serviceName,
+      number: serviceNumber,
+      time: new Date().toLocaleTimeString(),
+    };
+
+    historyData.unshift(data);
+
+    for (const data of historyData) {
+      const div = document.createElement("div");
+      div.innerHTML = `<div class="bg-[#FAFAFA] rounded-lg flex justify-between items-center p-4">
+                        <div>
+                            <h2 class="font-normal text-[18px]">${data.name}</h2>
+                            <p class="font-normal text-[18px]">${data.number}</p>
+                        </div>
+                        <div>
+                            <p class="font-normal text-[18px]">${data.time}</p>
+                        </div>
+                    </div>`;
+      historyContainer.appendChild(div);
+    }
   });
 }
+
+// CLEAR HISTORY FUNCTIONALITY:
+document.getElementById("clear-btn").addEventListener("click", function () {
+  historyContainer.innerHTML = "";
+});
+
+// MOBILE BUTTON TOGGLE FUNCTIONALITY:
+document.getElementById("service-btn").addEventListener("click", function () {
+  document.getElementById("service-section").style.display = "block";
+  document.getElementById("history-section").style.display = "none";
+});
+
+document.getElementById("history-btn").addEventListener("click", function () {
+  document.getElementById("service-section").style.display = "none";
+  document.getElementById("history-section").style.display = "block";
+});
