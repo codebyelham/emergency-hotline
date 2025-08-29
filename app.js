@@ -78,3 +78,28 @@ document.getElementById("history-btn").addEventListener("click", function () {
   document.getElementById("service-section").style.display = "none";
   document.getElementById("history-section").style.display = "block";
 });
+
+
+// COPY BUTTONS FUNCTIONALITY:
+const copyButtons = document.getElementsByClassName("copy-btn");
+const copyCount = document.getElementById("copy-count");
+
+for(const copyBtn of copyButtons){
+  copyBtn.addEventListener("click", function(){
+    let currentCopyCount = parseInt(copyCount.innerText);
+    currentCopyCount++;
+    copyCount.innerText = currentCopyCount;
+
+    cardBody = copyBtn.closest(".card-body");
+    const serviceNumber = cardBody.querySelector("h1").innerText;
+
+    const input = document.createElement("input");
+    input.value = serviceNumber;
+    document.body.appendChild(input);
+    input.select();
+    navigator.clipboard.writeText(input.value);
+
+    alert(`${input.value} নম্বরটি কপি করা হয়েছে।`);
+    document.body.removeChild(input)
+  })
+}
