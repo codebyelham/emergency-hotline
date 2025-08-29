@@ -2,19 +2,19 @@
 
 ## Answer to the question no 1:
 
-- ### getElementById():
+- ### getElementById(ID):
 
   The element is selected according to the specified ID, if there are multiple IDs with the same name, the first element is displayed.
 
-- ### getElementByClass():
+- ### getElementByClass(Class):
 
   This allows to select multiple elements by class name. It returns an HTML Collection, which looks like an array.
 
-- ### querySelector():
+- ### querySelector(cssSelector):
 
   Through this, We can select an element by any of the ID, Class, or Tag name. No matter which is selected, only the first element will be given according to the ID, CLass, and Tag Name.
 
-- ### querySelectorAll():
+- ### querySelectorAll(cssSelector):
   Through this, we get the matching elements of the CSS Selector in the form of a node, which is like an Array.
 
 ## Answer to the question no 2:
